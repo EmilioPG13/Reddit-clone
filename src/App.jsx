@@ -1,7 +1,13 @@
+import Navbar from './components/Navbar';
+
 function App() {
 
   return (
-    <header className="text-red-500">Hello there</header>
+    <div>
+      <Navbar />
+      <header className="text-red-500">Hello there</header>
+    </div>
+      
   )
 }
 
