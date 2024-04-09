@@ -1,6 +1,5 @@
 import Logo from './images/reddit-logo.png';
-import {SearchIcon} from '@heroicons/react/solid';
-
+import { SearchIcon } from '@heroicons/react/solid';
 
 function App() {
 
@@ -10,8 +9,8 @@ function App() {
         <div className="mx-4">
           <img src={Logo} alt="Reddit Logo" className="w-8 h-8 "/>
         </div>
-        <form action=''>
-          <SearchIcon className="text-white"/>
+        <form action='' className='bg-gray-800'>
+          <SearchIcon className="text-gray-300"/>
           <input type='text' className='bg-gray-800 h-8'/>
         </form>
       </header>
