@@ -12,6 +12,9 @@ module.exports = {
           DEFAULT: '#343536',
         }
       },
+      fontFamily: {
+        'verdana': ['Verdana', 'sans-serif'],
+      }
     },
   },
   variants: {
