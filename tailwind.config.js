@@ -11,8 +11,14 @@ module.exports = {
         },
         reddit_border: {
           DEFAULT: '#343536',
-        }
+        },
+        reddit_text: {
+          DEFAULT: '#f3f3f3',
+          darker: '#c2c2c2',
+          darkest: '#919191'
+        },
       },
+      
       fontFamily: {
         'verdana': ['Verdana', 'sans-serif'],
       }
