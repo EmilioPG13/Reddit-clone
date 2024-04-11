@@ -1,5 +1,6 @@
 import BoardHeader from "./components/BoardHeader.jsx"
 import Header from "./components/Header.jsx"
+import PostForm from "./components/PostForm.jsx"
 
 function App() {
 
@@ -7,6 +8,9 @@ function App() {
     <div>
       <Header />
       <BoardHeader />
+      <PostForm />
+      
+
     </div>
 
   )
