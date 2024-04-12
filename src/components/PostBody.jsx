@@ -1,8 +1,22 @@
-
+import { useEffect, useState } from 'react';
+import { getTopPosts } from '../api/reddit';
 
 function PostBody() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        getTopPosts()
+            .then(response => {
+                setPosts(response.data.data.children);
+            })
+            .catch(error => {
+                console.error('Error fetching data from Reddit API', error);
+        });
+    }, []);
+
     return (
         <div className="px-6 bg-reddit_dark text-reddit_text ">
+            
             <div className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md">
                 <h5 className="text-reddit_text-darkest text-sm mb-1">Posted by u/AutoModerator • 10 days ago</h5>
                 <h2 className="text-xl mb-3">Monthly Getting Started / Web Dev Career Thread</h2>
