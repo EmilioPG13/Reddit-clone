@@ -32,6 +32,9 @@ function PostBody() {
                     </div>
                     <div>
                         <h2 className="text-xl mb-3">{post.data.title}</h2>
+                        {post.data.url && post.data.url.match(/\.(jpeg|jpg|gif|png)$/) != null && (
+                            <img src={post.data.url} alt={post.data.title} className="my-3" />
+                        )}
                         <div className="text-reddit_text-darker text-sm leading-6">
                             <p className="mb-4">{post.data.selftext}</p>
                         </div>
