@@ -3,12 +3,19 @@ import { useEffect, useState } from 'react';
 function SubSidebar() {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['webdev', 'javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
+    const defaultIcon = 'https://www.redditstatic.com/icon.png';
 
     useEffect(() => {
         Promise.all(subreddits.map(subreddit =>
         fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
         .then(response => response.json())
-        .then(data => ({ subreddit, icon: data.data.icon_img }))
+        .then(data => {
+            let icon = data.data.icon_img;
+            if (icon === '') {
+                icon = defaultIcon;
+            }
+            return { subreddit, icon };
+        })
     ))
     .then(setSubredditData);
     }, []);
