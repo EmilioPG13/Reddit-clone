@@ -5,17 +5,17 @@ module.exports = {
     extend: {
       colors: {
         reddit_dark: {
-          DEFAULT: '#030303',
-          brighter: '#1a1a1a',
-          brightest: '#272728',
+          DEFAULT: '#E2E2E2', // This is a light gray color
+          brighter: '#f8f8f8', // This is a very light gray, almost white
+          brightest: '#f2f2f2', // This is a very light gray, even closer to white
         },
         reddit_border: {
-          DEFAULT: '#343536',
+          DEFAULT: '#DFDFEE', // This is a light grayish-blue color
         },
         reddit_text: {
-          DEFAULT: '#f3f3f3',
-          darker: '#c2c2c2',
-          darkest: '#919191'
+          DEFAULT: '#1B212C', // This is a very dark gray, almost black
+          darker: '#525F74', // This is a dark gray color
+          darkest: '#718096' // This is a medium-dark gray color
         },
       },
       
