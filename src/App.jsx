@@ -5,18 +5,16 @@ import PostBody from "./components/PostBody.jsx"
 import SubSidebar from "./components/SubSidebar.jsx"
 
 function App() {
-
   return (
-    <div>
+    <div className="bg-reddit_dark">
       <Header />
       <BoardHeader />
       <PostForm />
-      <div className="flex">
+      <div className="flex container mx-auto px-24">
         <PostBody />
         <SubSidebar />
       </div>
     </div>
-
   )
 }
 

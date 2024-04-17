@@ -2,7 +2,7 @@ import Avatar from "../images/avatar.png"
 
 function PostForm() {
     return (
-        <div className="bg-reddit_dark px-6 py-4 text-gray-400">
+        <div className="bg-reddit_dark px-72 py-4 text-gray-400">
             {/* Post Container */}
             <div className="border border-reddit_border p-2 rounded-md flex bg-reddit_dark-brighter">
                 {/* Avatar Container */}

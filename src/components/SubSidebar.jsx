@@ -21,14 +21,14 @@ function SubSidebar() {
     }, []);
 
     return (
-        <div className="bg-black sticky top-0">
+        <div className="bg-reddit_dark-default sticky top-0">
             <aside className="w-72 flex-none mr-6 p-4 border border-reddit_border bg-reddit_dark-brighter rounded-md mb-3">
-                <h2 className="text-xl mb-4 text-reddit_text">Suggested Subreddits</h2>
+                <h2 className="text-xl mb-4 text-reddit_text-default">Suggested Subreddits</h2>
                 <ul>
                     {subredditData.map(({ subreddit, icon }) => (
                         <li key={subreddit} className="mb-4 flex items-center">
                             <img src={icon} alt={subreddit} className='w-10 h-10 rounded-full mr-2' />
-                            <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                            <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700 hover:underline">
                             r/{subreddit}
                             </a>
                         </li>
