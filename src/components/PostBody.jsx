@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getTopPosts } from '../api/reddit';
-import { ChatAlt2Icon, ShareIcon, ArrowUpIcon, ArrowDownIcon  } from '@heroicons/react/outline';
+import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon  } from '@heroicons/react/outline';
 
 function PostBody() {
     const [posts, setPosts] = useState([]);
@@ -23,11 +23,11 @@ function PostBody() {
                 <div className="flex">
                     <aside className='sidebar flex flex-col items-center justify-start bg-reddit_dark-brighter p-2 mr-2 border-r border-reddit_border'>
                         <button className=''>
-                            <ArrowUpIcon className="w-5 h-5 text-reddit_text-darkest" />
+                            <ChevronUpIcon className="w-5 h-5 text-reddit_text-darkest" />
                         </button>
                         <p className='my-'>{post.data.ups}</p>
                         <button>
-                            <ArrowDownIcon className='w-5 h-5 text-reddit_text-darkest' />
+                            <ChevronDownIcon className='w-5 h-5 text-reddit_text-darkest' />
                         </button>
                     </aside>
                     <div>
