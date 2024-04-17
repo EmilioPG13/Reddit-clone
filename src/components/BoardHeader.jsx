@@ -2,7 +2,7 @@ function BoardHeader() {
     return (
         <>
             {/* Banner */}
-            <div className="h-20 bg-cover" style={{ backgroundImage: 'url("https://styles.redditmedia.com/t5_2qs0q/styles/bannerBackgroundImage_7glcgg5ymxp21.png")' }}>
+            <div className="h-40 bg-contain mx-80 rounded-lg" style={{ backgroundImage: 'url("https://styles.redditmedia.com/t5_2qs0q/styles/bannerBackgroundImage_7glcgg5ymxp21.png")' }}>
             </div>
             {/* Board Header */}
             <div className="bg-reddit_dark-brighter">
