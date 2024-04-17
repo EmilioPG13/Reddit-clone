@@ -15,7 +15,7 @@ function Header() {
                     {/* This is the Reddit logo */}
                     <img src={Logo} alt="Reddit Logo" className="w-8 h-8 mr-3 " />
                     {/* This is a text that says "reddit" */}
-                    <h4 className='text-amber-500 w-13 h-8 mr-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 mr-4 pt-1 font-verdana font-bold'>lite</h4>
+                    <h4 className='text-reddit_orange w-13 h-8 mr-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 mr-4 pt-1 font-verdana font-bold'>lite</h4>
                 </div>
                 {/* This is the search bar */}
                 <form action='' className='bg-reddit_dark-brighter px-3 flex rounded-full border border-reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
