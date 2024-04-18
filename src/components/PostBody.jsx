@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getTopPosts } from '../api/reddit';
-import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon  } from '@heroicons/react/outline';
+import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 
 function PostBody() {
     const [posts, setPosts] = useState([]);
+    const [expandedPostId, setExpandedPostId] = useState(null);
 
     useEffect(() => {
         getTopPosts()
@@ -16,11 +17,18 @@ function PostBody() {
             });
     }, []);
 
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        } else {
+            return text;
+        }
+    };
+
     return (
         <div className="px-6 bg-reddit_dark text-reddit_text ">
-        {posts.map(post => (
-            <article key={post.data.id} className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md mb-3">
-                <div className="flex">
+            {posts.map(post => (
+                <article key={post.data.id} className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md mb-3" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}>                    <div className="flex">
                     <aside className='sidebar flex flex-col items-center justify-start bg-reddit_dark-brighter p-2 mr-2 border-r border-reddit_border'>
                         <button className=''>
                             <ChevronUpIcon className="w-5 h-5 text-reddit_text-darkest" />
@@ -32,13 +40,13 @@ function PostBody() {
                     </aside>
                     <div>
                         <header>
-                            <h2 className="text-xl mb-3">{post.data.title}</h2>
+                            <h2 className="text-xl font-medium mb-3">{post.data.title}</h2>
                         </header>
                         {post.data.url && post.data.url.match(/\.(jpeg|jpg|gif|png)$/) != null && (
                             <img src={post.data.url} alt={post.data.title} className="my-3" />
                         )}
-                        <section className="text-reddit_text-darker text-sm leading-6">
-                            <p className="mb-4">{post.data.selftext}</p>
+                        <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(post.data.id)}>
+                            <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)}</p>
                         </section>
                         <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
                             <button className="mr-4 flex items-center text-reddit_text-darkest">
@@ -52,9 +60,9 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
-            </article>
-        ))}
-    </div>
+                </article>
+            ))}
+        </div>
     );
 }
 
