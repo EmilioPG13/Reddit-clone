@@ -5,8 +5,8 @@ import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroic
 function PostBody() {
     const [posts, setPosts] = useState([]);
     const [expandedPostId, setExpandedPostId] = useState(null);
-    const [displayComments, setDisplayComments] = useState(false);
     const [comments, setComments] = useState([]);
+    const [expandedCommentsId, setExpandedCommentsId] = useState(null);
 
     useEffect(() => {
         getTopPosts()
@@ -27,12 +27,18 @@ function PostBody() {
         }
     };
 
-    const togglePostComments = (postId) => {
-        if (!displayComments) {
-            getComments(postId)
-                .then(data => setComments(data.slice(0, 3)));
-        }
-        setDisplayComments(!displayComments);
+    const togglePostComments = (event, postId) => {
+        event.stopPropagation(); // Prevent the event from bubbling up
+        getComments(postId)
+            .then(data => {
+                if (data && data.length > 0) {
+                    setComments(data.slice(0, 3));
+                    setExpandedCommentsId(expandedCommentsId === postId ? null : postId);
+                } else {
+                    console.error('No comments found for this post');
+                }
+            })
+            .catch(error => console.error('Error fetching comments:', error));
     };
 
     return (
@@ -55,15 +61,16 @@ function PostBody() {
                         {post.data.url && post.data.url.match(/\.(jpeg|jpg|gif|png)$/) != null && (
                             <img src={post.data.url} alt={post.data.title} className="my-3" />
                         )}
-                        <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(post.data.id)}>
+                        <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}>
                             <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)} </p>
                         </section>
 
                         <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
-                            <button className="mr-4 flex items-center text-reddit_text-darkest" onClick= {() => togglePostComments(post.data.id)}>
+                            <button className="mr-4 flex items-center text-reddit_text-darkest" onClick={(event) => {event.stopPropagation(); togglePostComments(event, post.data.id)}}>
                                 <ChatAlt2Icon className="w-5 h- mr-1" />
                                 <p>{post.data.num_comments} Comments</p>
                             </button>
+
                             <button className="flex items-center text-reddit_text-darkest">
                                 <ShareIcon className="w-5 h-5 mr-1" />
                                 <p>Share</p>
@@ -71,7 +78,7 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
-                {displayComments && expandedPostId === post.data.id ? comments.map(comment => <p key={comment.data.id}>{comment.data.body}</p>) : null}
+                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <p key={comment.data.id}>{comment.data.body}</p>) : null}
                 </article>
             ))}
         </div>
