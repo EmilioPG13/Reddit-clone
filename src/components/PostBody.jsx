@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getTopPosts } from '../api/reddit';
+import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 
 function PostBody() {
     const [posts, setPosts] = useState([]);
     const [expandedPostId, setExpandedPostId] = useState(null);
+    const [displayComments, setDisplayComments] = useState(false);
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         getTopPosts()
@@ -23,6 +25,14 @@ function PostBody() {
         } else {
             return text;
         }
+    };
+
+    const togglePostComments = (postId) => {
+        if (!displayComments) {
+            getComments(postId)
+                .then(data => setComments(data.slice(0, 3)));
+        }
+        setDisplayComments(!displayComments);
     };
 
     return (
@@ -48,8 +58,9 @@ function PostBody() {
                         <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(post.data.id)}>
                             <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)} </p>
                         </section>
+
                         <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
-                            <button className="mr-4 flex items-center text-reddit_text-darkest">
+                            <button className="mr-4 flex items-center text-reddit_text-darkest" onClick= {() => togglePostComments(post.data.id)}>
                                 <ChatAlt2Icon className="w-5 h- mr-1" />
                                 <p>{post.data.num_comments} Comments</p>
                             </button>
@@ -60,6 +71,7 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
+                {displayComments && expandedPostId === post.data.id ? comments.map(comment => <p key={comment.data.id}>{comment.data.body}</p>) : null}
                 </article>
             ))}
         </div>
