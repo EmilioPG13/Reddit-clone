@@ -46,7 +46,7 @@ function PostBody() {
                             <img src={post.data.url} alt={post.data.title} className="my-3" />
                         )}
                         <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(post.data.id)}>
-                            <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)}</p>
+                            <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)} </p>
                         </section>
                         <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
                             <button className="mr-4 flex items-center text-reddit_text-darkest">
