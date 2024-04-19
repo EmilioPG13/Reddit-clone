@@ -7,17 +7,17 @@ function SubSidebar() {
 
     useEffect(() => {
         Promise.all(subreddits.map(subreddit =>
-        fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
-        .then(response => response.json())
-        .then(data => {
-            let icon = data.data.icon_img;
-            if (icon === '') {
-                icon = defaultIcon;
-            }
-            return { subreddit, icon };
-        })
-    ))
-    .then(setSubredditData);
+            fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
+                .then(response => response.json())
+                .then(data => {
+                    let icon = data.data.icon_img;
+                    if (icon === '') {
+                        icon = defaultIcon;
+                    }
+                    return { subreddit, icon };
+                })
+        ))
+            .then(setSubredditData);
     }, []);
 
     return (
@@ -27,10 +27,12 @@ function SubSidebar() {
                 <ul>
                     {subredditData.map(({ subreddit, icon }) => (
                         <li key={subreddit} className="mb-4 flex items-center">
-                            <img src={icon} alt={subreddit} className='w-10 h-10 rounded-full mr-2' />
-                            <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700 hover:underline">
-                            r/{subreddit}
-                            </a>
+                            <div className='flex items-center transition duration-300 hover:bg-sky-500 rounded p-2 w-full'>
+                                <img src={icon} alt={subreddit} className='w-10 h-10 rounded-full mr-2' />
+                                <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700">
+                                    r/{subreddit}
+                                </a>
+                            </div>
                         </li>
                     ))}
                 </ul>
