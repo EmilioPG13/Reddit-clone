@@ -79,7 +79,7 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
-                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <ReactMarkdown key={comment.data.id}>{comment.data.body}</ReactMarkdown>) : null}                </article>
+                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <ReactMarkdown className='my-4 mx-11' key={comment.data.id}>{comment.data.body}</ReactMarkdown>) : null}                </article>
             ))}
         </div>
     );
