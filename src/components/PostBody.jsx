@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import ReactMarkdown from 'react-markdown';
+import { formatDistanceToNow } from 'date-fns';
 
 function PostBody() {
     const [posts, setPosts] = useState([]);
@@ -79,7 +80,14 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
-                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <ReactMarkdown className='my-4 mx-11' key={comment.data.id}>{comment.data.body}</ReactMarkdown>) : null}                </article>
+                    {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => (
+                        <div key={comment.data.id} className='my-4 mx-11'>
+                            <p><strong>{comment.data.author}</strong> commented {formatDistanceToNow(new Date(comment.data.created_utc * 1000))}</p>
+                            <hr className='mb-2' />
+                            <ReactMarkdown>{comment.data.body}</ReactMarkdown>
+                        </div>
+                    )) : null}
+                </article>
             ))}
         </div>
     );
