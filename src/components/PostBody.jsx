@@ -81,9 +81,9 @@ function PostBody() {
                     </div>
                 </div>
                     {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => (
-                        <div key={comment.data.id} className='my-4 mx-11'>
-                            <p><strong>{comment.data.author}</strong> commented {formatDistanceToNow(new Date(comment.data.created_utc * 1000))}</p>
-                            <hr className='mb-2' />
+                        <div key={comment.data.id} className='my-4 mx-11 bg-stone-100 transition duration-300 rounded p-2  hover:shadow-lg'>
+                            <p><strong>{comment.data.author}</strong> commented {formatDistanceToNow(new Date(comment.data.created_utc * 1000))} ago</p>
+                            <hr />
                             <ReactMarkdown>{comment.data.body}</ReactMarkdown>
                         </div>
                     )) : null}
