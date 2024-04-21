@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import ReactMarkdown from 'react-markdown';
 
 function PostBody() {
     const [posts, setPosts] = useState([]);
@@ -62,11 +63,11 @@ function PostBody() {
                             <img src={post.data.url} alt={post.data.title} className="my-3" />
                         )}
                         <section className="text-reddit_text-darker text-sm leading-relaxed" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}>
-                            <p className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)} </p>
+                            <ReactMarkdown className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)}</ReactMarkdown>
                         </section>
 
                         <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
-                            <button className="mr-4 flex items-center text-reddit_text-darkest" onClick={(event) => {event.stopPropagation(); togglePostComments(event, post.data.id)}}>
+                            <button className="mr-4 flex items-center text-reddit_text-darkest" onClick={(event) => { event.stopPropagation(); togglePostComments(event, post.data.id) }}>
                                 <ChatAlt2Icon className="w-5 h- mr-1" />
                                 <p>{post.data.num_comments} Comments</p>
                             </button>
@@ -78,8 +79,7 @@ function PostBody() {
                         </footer>
                     </div>
                 </div>
-                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <p key={comment.data.id}>{comment.data.body}</p>) : null}
-                </article>
+                {expandedCommentsId === post.data.id && comments.length > 0 ? comments.map(comment => <ReactMarkdown key={comment.data.id}>{comment.data.body}</ReactMarkdown>) : null}                </article>
             ))}
         </div>
     );
