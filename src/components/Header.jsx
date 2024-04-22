@@ -19,7 +19,7 @@ function Header() {
                     <input type='text' className='bg-reddit_dark-brighter text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9' placeholder='Search' />
                 </form>
                 {/* This is the right part of the header */} 
-                <div className='flex'>
+                <div className='flex mr-2'>
                     {/* This is a button with an avatar and a dropdown icon */} 
                     <button className='ml-4 flex'>
                         <div className='w-8 h-8 bg-gray-600 rounded-md'>
