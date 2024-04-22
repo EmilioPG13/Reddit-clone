@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 function SubSidebar() {
     const [subredditData, setSubredditData] = useState([]);
-    const subreddits = ['webdev', 'javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
+    const subreddits = ['javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
 
     useEffect(() => {

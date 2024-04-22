@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getTopPosts, getComments } from '../api/reddit';
-import { ChatAlt2Icon, ShareIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { ChatAlt2Icon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -73,10 +73,10 @@ function PostBody() {
                                 <p>{post.data.num_comments} Comments</p>
                             </button>
 
-                            <button className="flex items-center text-reddit_text-darkest">
+                            {/* <button className="flex items-center text-reddit_text-darkest">
                                 <ShareIcon className="w-5 h-5 mr-1" />
                                 <p>Share</p>
-                            </button>
+                            </button> */}
                         </footer>
                     </div>
                 </div>
