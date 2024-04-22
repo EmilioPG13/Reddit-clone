@@ -1,6 +1,6 @@
 import Logo from '../images/reddit-logo.png';
 import Avatar from '../images/avatar.png';
-import { BellIcon, ChatIcon, PlusIcon, SearchIcon, ChevronDownIcon, MenuIcon } from '@heroicons/react/outline';
+import { SearchIcon, ChevronDownIcon } from '@heroicons/react/outline';
 
 function Header() {
     return (
@@ -8,14 +8,10 @@ function Header() {
             <div className="flex justify-between">
                  {/* This is the left part of the header */}
                 <div className='flex'>
-                    {/* This is a button with a menu icon */}
-                    <button className='px-2 py-1'>
-                        <MenuIcon className='text-gray-600 w-6 h-6 ml-[-4px]' />
-                    </button>
                     {/* This is the Reddit logo */}
-                    <img src={Logo} alt="Reddit Logo" className="w-8 h-8 mr-3 " />
+                    <img src={Logo} alt="Reddit Logo" className="w-8 h-8 ml-3 " />
                     {/* This is a text that says "reddit" */}
-                    <h4 className='text-reddit_orange w-13 h-8 mr-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 mr-4 pt-1 font-verdana font-bold'>lite</h4>
+                    <h4 className='text-reddit_orange w-13 h-8 ml-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 ml-1 pt-1 font-verdana font-bold'>lite</h4>
                 </div>
                 {/* This is the search bar */}
                 <form action='' className='bg-reddit_dark-brighter px-3 flex rounded-full border border-reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
@@ -24,17 +20,6 @@ function Header() {
                 </form>
                 {/* This is the right part of the header */} 
                 <div className='flex'>
-                    {/* These are various buttons with icons */} 
-                    <button className='px-2 py-1 '>
-                        <ChatIcon className='text-gray-600 w-6 h-6 mx-2' />
-                    </button>
-                    <button className='px-2 py-1 flex items-center justify-center'>
-                        <PlusIcon className='text-gray-600 w-6 h-6 mx-2' />
-                        <p className='text-stone-950'>Create</p>
-                    </button>
-                    <button className='px-2 py-1 '>
-                        <BellIcon className='text-gray-600 w-6 h-6 mx-2' />
-                    </button>
                     {/* This is a button with an avatar and a dropdown icon */} 
                     <button className='ml-4 flex'>
                         <div className='w-8 h-8 bg-gray-600 rounded-md'>
