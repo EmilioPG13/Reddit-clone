@@ -1,12 +1,21 @@
+import { useState } from 'react';
 import Logo from '../images/reddit-logo.png';
 import Avatar from '../images/avatar.png';
 import { SearchIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import linkedInLogo from '../images/linkedIn-logo.png';
+import githubLogo from '../images/github-logo.png';
 
 function Header() {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    }
+
     return (
         <header className="w-full bg-reddit_dark relative p-2 pb-3.5">
             <div className="flex justify-between">
-                 {/* This is the left part of the header */}
+                {/* This is the left part of the header */}
                 <div className='flex'>
                     {/* This is the Reddit logo */}
                     <img src={Logo} alt="Reddit Logo" className="w-8 h-8 ml-3 " />
@@ -18,15 +27,31 @@ function Header() {
                     <SearchIcon className="text-gray-500 h-6 w-6 mt-1" />
                     <input type='text' className='bg-reddit_dark-brighter text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9' placeholder='Search' />
                 </form>
-                {/* This is the right part of the header */} 
+                {/* This is the right part of the header */}
                 <div className='flex mr-2'>
-                    {/* This is a button with an avatar and a dropdown icon */} 
-                    <button className='ml-4 flex'>
+                    {/* This is a button with an avatar and a dropdown icon */}
+                    <button className='ml-4 flex' onClick={toggleDropdown}>
                         <div className='w-8 h-8 bg-gray-600 rounded-md'>
                             <img src={Avatar} alt="Avatar" className="block rounded-md" />
                         </div>
                         <ChevronDownIcon className="text-gray-600 w-5 h-5 mt-2 ml-2" />
                     </button>
+                    {dropdownOpen && (
+                        <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_dark-brighter border-reddit_border rounded shadow-lg py-1 z-10">
+                            <h5 className='font-semibold text-center mt-2 mb-2 text-sky-700'>Created by Emilio Parra</h5>
+                            <hr />
+                            <h6 className='mt-2 mb-2 text-gray-700 text-center font-medium'>Contact Information</h6>
+                            <a href="https://www.linkedin.com/in/emilio-parra-3813a5107/" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative flex items-center">
+                                <img src={linkedInLogo} alt="LinkedIn logo" className='h-full object-cover mr-2 max-w-[20px] max-h-[20px]' />
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/EmilioPG13" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative flex items-center">
+                                <img src={githubLogo} alt="GitHub logo" className='h-full object-cover mr-2 max-w-[20px] max-h-[20px]' />
+                                GitHub
+                            </a>
+
+                        </div>
+                    )}
                 </div>
             </div>
         </header>
