@@ -42,11 +42,11 @@ function Header() {
                             <h5 className='font-semibold text-center mt-2 mb-2 text-sky-700'>Created by Emilio Parra</h5>
                             <hr />
                             <h6 className='mt-2 mb-2 text-gray-700 text-center font-medium'>Contact Information</h6>
-                            <a href="https://www.linkedin.com/in/emilio-parra-3813a5107/" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative flex items-center">
+                            <a href="https://www.linkedin.com/in/emilio-parra-3813a5107/" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative items-center">
                                 <img src={linkedInLogo} alt="LinkedIn logo" className='h-full object-cover mr-2 max-w-[20px] max-h-[20px]' />
                                 LinkedIn
                             </a>
-                            <a href="https://github.com/EmilioPG13" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative flex items-center">
+                            <a href="https://github.com/EmilioPG13" target="_blank" className="block px-4 py-2 text-sm hover:bg-gray-500 hover:text-white relative items-center">
                                 <img src={githubLogo} alt="GitHub logo" className='h-full object-cover mr-2 max-w-[20px] max-h-[20px]' />
                                 GitHub
                             </a>

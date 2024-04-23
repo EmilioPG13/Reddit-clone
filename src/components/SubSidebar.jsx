@@ -18,7 +18,7 @@ function SubSidebar() {
                 })
         ))
             .then(setSubredditData);
-    }, []);
+    }, [subreddits]);
 
     return (
         <div className="bg-reddit_dark-default sticky top-0 h-screen">
