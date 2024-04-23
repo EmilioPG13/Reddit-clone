@@ -36,6 +36,7 @@ function Header() {
                         </div>
                         <ChevronDownIcon className="text-gray-600 w-5 h-5 mt-2 ml-2" />
                     </button>
+                    {/* This is the dropdown menu */}
                     {dropdownOpen && (
                         <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_dark-brighter border-reddit_border rounded shadow-lg py-1 z-10">
                             <h5 className='font-semibold text-center mt-2 mb-2 text-sky-700'>Created by Emilio Parra</h5>
