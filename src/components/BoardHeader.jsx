@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
 
 function BoardHeader({ subreddit = 'webdev' }) {
     const [bannerURL, setBannerUrl] = useState('');
@@ -39,6 +39,8 @@ function BoardHeader({ subreddit = 'webdev' }) {
     );
 }
 
-
+BoardHeader.propTypes = {
+    subreddit: PropTypes.string,
+};
 
 export default BoardHeader;
