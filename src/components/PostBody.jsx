@@ -73,10 +73,6 @@ function PostBody() {
                                 <p>{post.data.num_comments} Comments</p>
                             </button>
 
-                            {/* <button className="flex items-center text-reddit_text-darkest">
-                                <ShareIcon className="w-5 h-5 mr-1" />
-                                <p>Share</p>
-                            </button> */}
                         </footer>
                     </div>
                 </div>

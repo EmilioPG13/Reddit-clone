@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SubSidebar() {
     const [subredditData, setSubredditData] = useState([]);
