@@ -3,15 +3,16 @@ import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
+import PropTypes from 'prop-types';
 
-function PostBody() {
+function PostBody({ subreddit }) {
     const [posts, setPosts] = useState([]);
     const [expandedPostId, setExpandedPostId] = useState(null);
     const [comments, setComments] = useState([]);
     const [expandedCommentsId, setExpandedCommentsId] = useState(null);
 
     useEffect(() => {
-        getTopPosts()
+        getTopPosts(subreddit)
             .then(response => {
                 console.log(response);
                 setPosts(response.data.children);
@@ -19,7 +20,7 @@ function PostBody() {
             .catch(error => {
                 console.error('Error fetching data from Reddit API', error);
             });
-    }, []);
+    }, [subreddit]);
 
     const truncateText = (text, maxLength) => {
         if (text.length > maxLength) {
@@ -88,5 +89,9 @@ function PostBody() {
         </div>
     );
 }
+
+PostBody.propTypes = {
+    subreddit: PropTypes.string.isRequired,
+};
 
 export default PostBody;

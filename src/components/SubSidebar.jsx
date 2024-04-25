@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SubSidebar() {
     const [subredditData, setSubredditData] = useState([]);
@@ -7,7 +8,7 @@ function SubSidebar() {
 
     useEffect(() => {
         Promise.all(subreddits.map(subreddit =>
-            fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
+            fetch(`/.netlify/functions/proxy?subreddit=${subreddit}`)
                 .then(response => response.json())
                 .then(data => {
                     let icon = data.data.icon_img;
@@ -30,9 +31,9 @@ function SubSidebar() {
                             <li key={subreddit} className="mb-4 flex items-center">
                                 <div className='flex items-center transition duration-300 hover:bg-sky-500/75 rounded p-2 w-full'>
                                     <img src={icon} alt={subreddit} className='w-10 h-10 rounded-full mr-2' />
-                                    <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700">
+                                    <Link to={`/r/${subreddit}`} className="text-sky-700">
                                         r/{subreddit}
-                                    </a>
+                                    </Link>
                                 </div>
                             </li>
                         ))}
