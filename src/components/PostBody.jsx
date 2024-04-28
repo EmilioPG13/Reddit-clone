@@ -40,7 +40,10 @@ function PostBody() {
                     console.error('No comments found for this post');
                 }
             })
-            .catch(error => console.error('Error fetching comments:', error));
+            .catch(error => {
+                console.error('Error fetching comments:', error);
+                setNetworkError(true);
+            });
     };
 
     return (
