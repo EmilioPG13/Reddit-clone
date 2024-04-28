@@ -21,14 +21,28 @@ module.exports = {
           darkest: '#718096' // This is a medium-dark gray color
         },
       },
-      
-      fontFamily: {
-        'verdana': ['Verdana', 'sans-serif'],
-      }
+      dark: {
+        reddit_light: {
+          DEFAULT: '#1B212C', // This is a dark gray color for dark mode
+          brighter: '#525F74', // This is a darker gray color for dark mode
+          brightest: '#718096' // This is a medium-dark gray color for dark mode
+        },
+        reddit_border: {
+          DEFAULT: '#DFDFEE', // This is a light grayish-blue color for dark mode
+        },
+        reddit_text: {
+          DEFAULT: '#E2E2E2', // This is a light gray color for dark mode
+          darker: '#f8f8f8', // This is a very light gray, almost white, for dark mode
+          darkest: '#f2f2f2' // This is a very light gray, even closer to white, for dark mode
+        },
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['dark'],
+      textColor: ['dark'],
+    },
   },
   plugins: [],
 }
