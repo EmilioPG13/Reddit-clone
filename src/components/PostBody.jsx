@@ -42,6 +42,7 @@ function PostBody() {
             })
             .catch(error => {
                 console.error('Error fetching comments:', error);
+                // eslint-disable-next-line no-undef
                 setNetworkError(true);
             });
     };

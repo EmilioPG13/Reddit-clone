@@ -1,39 +1,37 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         reddit_orange: {
-          DEFAULT: '#FF5700', // This is the Reddit orange color
+          DEFAULT: '#FF5700',
         },
         reddit_light: {
-          DEFAULT: '#E2E2E2', // This is a light gray color
-          brighter: '#f8f8f8', // This is a very light gray, almost white
-          brightest: '#f2f2f2', // This is a very light gray, even closer to white
+          DEFAULT: '#E2E2E2',
+          brighter: '#f8f8f8',
+          brightest: '#f2f2f2',
         },
         reddit_border: {
-          DEFAULT: '#DFDFEE', // This is a light grayish-blue color
+          DEFAULT: '#DFDFEE',
         },
         reddit_text: {
-          DEFAULT: '#1B212C', // This is a very dark gray, almost black
-          darker: '#525F74', // This is a dark gray color
-          darkest: '#718096' // This is a medium-dark gray color
+          DEFAULT: '#3D4B65',
+          darker: '#525F74',
+          darkest: '#718096',
         },
-      },
-      dark: {
-        reddit_light: {
-          DEFAULT: '#1B212C', // This is a dark gray color for dark mode
-          brighter: '#525F74', // This is a darker gray color for dark mode
-          brightest: '#718096' // This is a medium-dark gray color for dark mode
+        dark_reddit_light: {
+          DEFAULT: '#4A5656',
+          brighter: '#525F74',
+          brightest: '#718B96',
         },
-        reddit_border: {
-          DEFAULT: '#DFDFEE', // This is a light grayish-blue color for dark mode
+        dark_reddit_border: {
+          DEFAULT: '#8E8E97',
         },
-        reddit_text: {
-          DEFAULT: '#E2E2E2', // This is a light gray color for dark mode
-          darker: '#f8f8f8', // This is a very light gray, almost white, for dark mode
-          darkest: '#f2f2f2' // This is a very light gray, even closer to white, for dark mode
+        dark_reddit_text: {
+          DEFAULT: '#A9A9A9',
+          darker: '#BEBEBE',
+          darkest: '#B9B9B9',
         },
       },
     },

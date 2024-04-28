@@ -24,7 +24,7 @@ function Header() {
     };
 
     return (
-        <header className="w-full bg-reddit_light relative p-2 pb-3.5">
+        <header className="w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text">
             <div className="flex justify-between">
 
                 {/* This is the left part of the header */}
@@ -53,7 +53,7 @@ function Header() {
                         <div className='w-8 h-8 bg-gray-600 rounded-md'>
                             <img src={Avatar} alt="Avatar" className="block rounded-md" />
                         </div>
-                        <ChevronDownIcon className="text-gray-600 w-5 h-5 mt-2 ml-2" />
+                        <ChevronDownIcon className="text-sky-500 w-5 h-5 mt-2 ml-2" />
 
                         {/* This is the dropdown Menu */}
                     </button>
