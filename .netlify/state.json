@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Puebla City",
+			"country": {
+				"code": "MX",
+				"name": "Mexico"
+			},
+			"subdivision": {
+				"code": "PUE",
+				"name": "Puebla"
+			},
+			"timezone": "America/Mexico_City",
+			"latitude": 19.0436,
+			"longitude": -98.1981
+		},
+		"timestamp": 1714316560915
+	}
+}
