@@ -7,7 +7,7 @@ module.exports = {
         reddit_orange: {
           DEFAULT: '#FF5700', // This is the Reddit orange color
         },
-        reddit_dark: {
+        reddit_light: {
           DEFAULT: '#E2E2E2', // This is a light gray color
           brighter: '#f8f8f8', // This is a very light gray, almost white
           brightest: '#f2f2f2', // This is a very light gray, even closer to white

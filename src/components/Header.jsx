@@ -13,7 +13,7 @@ function Header() {
     }
 
     return (
-        <header className="w-full bg-reddit_dark relative p-2 pb-3.5">
+        <header className="w-full bg-reddit_light relative p-2 pb-3.5">
             <div className="flex justify-between">
                 {/* This is the left part of the header */}
                 <div className='flex'>
@@ -23,9 +23,9 @@ function Header() {
                     <h4 className='text-reddit_orange w-13 h-8 ml-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 ml-1 pt-1 font-verdana font-bold'>lite</h4>
                 </div>
                 {/* This is the search bar */}
-                <form action='' className='bg-reddit_dark-brighter px-3 flex rounded-full border border-reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
+                <form action='' className='bg-reddit_light-brighter px-3 flex rounded-full border border-reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
                     <SearchIcon className="text-gray-500 h-6 w-6 mt-1" />
-                    <input type='text' className='bg-reddit_dark-brighter text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9' placeholder='Search' />
+                    <input type='text' className='bg-reddit_light-brighter text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9' placeholder='Search' />
                 </form>
                 {/* This is the right part of the header */}
                 <div className='flex mr-2'>
@@ -37,7 +37,7 @@ function Header() {
                         <ChevronDownIcon className="text-gray-600 w-5 h-5 mt-2 ml-2" />
                     </button>
                     {dropdownOpen && (
-                        <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_dark-brighter border-reddit_border rounded shadow-lg py-1 z-10">
+                        <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_light-brighter border-reddit_border rounded shadow-lg py-1 z-10">
                             <h5 className='font-semibold text-center mt-2 mb-2 text-sky-700'>Created by Emilio Parra</h5>
                             <hr />
                             <h6 className='mt-2 mb-2 text-gray-700 text-center font-medium'>Contact Information</h6>

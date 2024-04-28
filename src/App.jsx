@@ -6,7 +6,7 @@ import SubSidebar from "./components/SubSidebar.jsx"
 
 function App() {
   return (
-    <div className="bg-reddit_dark">
+    <div className="bg-reddit_light">
       <Header />
       <BoardHeader />
       <PostForm />

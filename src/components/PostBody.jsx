@@ -47,10 +47,10 @@ function PostBody() {
     };
 
     return (
-        <div className="px-6 bg-reddit_dark text-reddit_text ">
+        <div className="px-6 bg-reddit_light text-reddit_text ">
             {posts.map(post => (
-                <article key={post.data.id} className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md mb-3" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}>                    <div className="flex">
-                    <aside className='sidebar flex flex-col items-center justify-start bg-reddit_dark-brighter p-2 mr-2 border-r border-reddit_border'>
+                <article key={post.data.id} className="border border-reddit_border bg-reddit_light-brighter p-2 rounded-md mb-3" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}>                    <div className="flex">
+                    <aside className='sidebar flex flex-col items-center justify-start bg-reddit_light-brighter p-2 mr-2 border-r border-reddit_border'>
                         <button className=''>
                             <ChevronUpIcon className="w-5 h-5 text-reddit_text-darkest" />
                         </button>
@@ -70,7 +70,7 @@ function PostBody() {
                             <ReactMarkdown className="mb-4">{expandedPostId === post.data.id ? post.data.selftext : truncateText(post.data.selftext, 100)}</ReactMarkdown>
                         </section>
 
-                        <footer className="flex justify-items-start py-1 bg-reddit_dark-brighter border-t border-reddit_border">
+                        <footer className="flex justify-items-start py-1 bg-reddit_light-brighter border-t border-reddit_border">
                             <button className="mr-4 flex items-center text-reddit_text-darkest" onClick={(event) => { event.stopPropagation(); togglePostComments(event, post.data.id) }}>
                                 <ChatAlt2Icon className="w-5 h- mr-1" />
                                 <p>{post.data.num_comments} Comments</p>
