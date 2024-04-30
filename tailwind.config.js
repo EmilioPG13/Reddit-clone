@@ -21,15 +21,15 @@ module.exports = {
           darkest: '#718096',
         },
         dark_reddit_light: {
-          DEFAULT: '#4A5656',
-          brighter: '#525F74',
-          brightest: '#718B96',
+          DEFAULT: '#222831',
+          brighter: '#31363F',
+          brightest: '#50727B',
         },
         dark_reddit_border: {
-          DEFAULT: '#8E8E97',
+          DEFAULT: '#344955',
         },
         dark_reddit_text: {
-          DEFAULT: '#A9A9A9',
+          DEFAULT: '#EEEEEE',
           darker: '#BEBEBE',
           darkest: '#B9B9B9',
         },

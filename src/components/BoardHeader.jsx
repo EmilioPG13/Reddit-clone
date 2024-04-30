@@ -31,7 +31,7 @@ function BoardHeader({ subreddit = 'webdev' }) {
                     </div>
                     {/* Board Title */}
                     <div className="pt-5 pl-4 font-semibold">
-                        <h1 className="text-reddit_text text-4xl">r/{subreddit}</h1>
+                        <h1 className="text-reddit_text text-4xl dark:text-dark_reddit_text-darkest">r/{subreddit}</h1>
                     </div>
                 </div>
             </div>

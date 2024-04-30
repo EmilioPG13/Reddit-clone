@@ -3,10 +3,12 @@ import Header from "./components/Header.jsx"
 import PostForm from "./components/PostForm.jsx"
 import PostBody from "./components/PostBody.jsx"
 import SubSidebar from "./components/SubSidebar.jsx"
+import { DarkModeProvider } from "./components/DarkModeContext.jsx"
 
 function App() {
   return (
-    <div className="bg-reddit_light">
+    <DarkModeProvider>
+    <div className="bg-reddit_light dark:bg-dark_reddit_light">
       <Header />
       <BoardHeader />
       <PostForm />
@@ -15,6 +17,7 @@ function App() {
         <SubSidebar />
       </div>
     </div>
+    </DarkModeProvider>
   )
 }
 

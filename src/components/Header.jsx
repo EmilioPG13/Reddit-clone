@@ -1,27 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Logo from '../images/reddit-logo.png';
 import Avatar from '../images/avatar.png';
 import { SearchIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import linkedInLogo from '../images/linkedIn-logo.png';
 import githubLogo from '../images/github-logo.png';
+import { DarkModeContext } from './DarkModeContext';
 
 function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     }
-
-    const  toggleDarkMode = () => {
-        if (darkMode) {
-            document.documentElement.classList.remove('dark');
-        } else {
-            document.documentElement.classList.add('dark');
-        }
-        setDarkMode(!darkMode);
-    };
 
     return (
         <header className="w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text">
@@ -35,9 +27,9 @@ function Header() {
                     <h4 className='text-reddit_orange w-13 h-8 ml-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 ml-1 pt-1 font-verdana font-bold'>lite</h4>
                 </div>
                 {/* This is the search bar */}
-                <form action='' className='bg-reddit_light-brighter px-3 flex rounded-full border border-reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
-                    <SearchIcon className="text-gray-500 h-6 w-6 mt-1" />
-                    <input type='text' className='bg-reddit_light-brighter text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9' placeholder='Search' />
+                <form action='' className='bg-reddit_light-brighter dark:bg-dark_reddit_light-brightest px-3 flex rounded-full border border-reddit_border dark:border-dark_reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
+                    <SearchIcon className="text-gray-500 h-6 w-6 mt-1 dark:text-dark_reddit_text" />
+                    <input type='text' className='bg-reddit_light-brighter dark:bg-dark_reddit_light-brightest text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9 dark:text-dark_reddit_text' placeholder='Search' />
                 </form>
 
                 {/* This is the right part of the header */}
@@ -45,7 +37,7 @@ function Header() {
                 {/* This is the dark mode button */}
                 <div className='flex mr-2'>
                     <button onClick={toggleDarkMode}>
-                        {darkMode ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
+                        {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
                     </button>
 
                     {/* This is a button with an avatar and a dropdown icon */}
