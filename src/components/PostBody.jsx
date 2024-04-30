@@ -3,11 +3,8 @@ import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
-<<<<<<< HEAD
-import PropTypes from 'prop-types';
-=======
 import { DarkModeContext } from './DarkModeContext';
->>>>>>> sidebar-fetch
+import PropTypes from 'prop-types';
 
 function PostBody({ subreddit }) {
     const [posts, setPosts] = useState([]);
@@ -100,6 +97,8 @@ function PostBody({ subreddit }) {
         </div>
     );
 }
+
+
 
 PostBody.propTypes = {
     subreddit: PropTypes.string.isRequired,
