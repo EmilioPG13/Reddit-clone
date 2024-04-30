@@ -22,7 +22,7 @@ function BoardHeader({ subreddit = 'webdev' }) {
             <div className="h-40 bg-contain bg-repeat bg-center mx-80 rounded-lg" style={{ backgroundImage: `url("${bannerURL}")` }}>
             </div>
             {/* Board Header */}
-            <div className="bg-reddit_dark-bright">
+            <div className="bg-reddit_light-bright">
                 {/* Header Content */}
                 <div className="ml-80 relative flex">
                     {/* Board Icon */}
@@ -31,7 +31,7 @@ function BoardHeader({ subreddit = 'webdev' }) {
                     </div>
                     {/* Board Title */}
                     <div className="pt-5 pl-4 font-semibold">
-                        <h1 className="text-reddit_text text-4xl">r/{subreddit}</h1>
+                        <h1 className="text-reddit_text text-4xl dark:text-dark_reddit_text-darkest">r/{subreddit}</h1>
                     </div>
                 </div>
             </div>
