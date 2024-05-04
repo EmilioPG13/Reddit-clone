@@ -4,8 +4,9 @@ import { ChatAlt2Icon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/o
 import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
 import { DarkModeContext } from './DarkModeContext';
+import PropTypes from 'prop-types';
 
-function PostBody() {
+function PostBody({ subreddit }) {
     const [posts, setPosts] = useState([]);
     const [expandedPostId, setExpandedPostId] = useState(null);
     const [comments, setComments] = useState([]);
@@ -13,15 +14,14 @@ function PostBody() {
     const { darkMode } = useContext(DarkModeContext);
 
     useEffect(() => {
-        getTopPosts()
+        getTopPosts(subreddit)
             .then(response => {
-                console.log(response);
                 setPosts(response.data.children);
             })
             .catch(error => {
                 console.error('Error fetching data from Reddit API', error);
             });
-    }, []);
+    }, [subreddit]);
 
     const truncateText = (text, maxLength) => {
         if (text.length > maxLength) {
@@ -96,5 +96,9 @@ function PostBody() {
         </div>
     );
 }
+
+PostBody.propTypes = {
+    subreddit: PropTypes.string.isRequired,
+};
 
 export default PostBody;
