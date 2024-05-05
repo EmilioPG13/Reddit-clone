@@ -9,6 +9,7 @@ import { useState } from "react";
 function App() {
   const [subreddit, setSubreddit] = useState("r/webdev");
 
+  
   return (
     <DarkModeProvider>
     <div className="bg-reddit_light dark:bg-dark_reddit_light">
