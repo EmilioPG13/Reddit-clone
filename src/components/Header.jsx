@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import Logo from '../images/reddit-logo.png';
 import Avatar from '../images/avatar.png';
-import { SearchIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon } from '@heroicons/react/outline';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import linkedInLogo from '../images/linkedIn-logo.png';
 import githubLogo from '../images/github-logo.png';
