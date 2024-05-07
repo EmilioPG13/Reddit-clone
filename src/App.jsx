@@ -14,7 +14,6 @@ function App() {
       <div className="bg-reddit_light dark:bg-dark_reddit_light">
         <Header />
         <BoardHeader />
-        <PostForm subreddit={subreddit} />
         <div className="flex container mx-auto px-24">
           <PostBody subreddit={subreddit} />
           <SubSidebar />
