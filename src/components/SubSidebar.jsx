@@ -9,7 +9,7 @@ function SubSidebar() {
 
     useEffect(() => {
     Promise.all(subreddits.map(subreddit =>
-        fetch(`/.netlify/functions/proxy?subreddit=${subreddit}`)
+        fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -46,7 +46,12 @@ function SubSidebar() {
                             {subredditData.map(({ subreddit, icon }) => (
                                 <li key={subreddit} className="mb-4 flex items-center">
                                     <div className='flex items-center transition duration-300 hover:bg-sky-500/75 rounded p-2 w-full '>
-                                        <img src={icon} alt={subreddit} className='w-10 h-10 rounded-full mr-2' />
+                                        <img 
+                                            src={icon} 
+                                            alt={`${subreddit} icon`}
+                                            onError={(e) => { e.target.onerror = null; e.target.src = defaultIcon;}}
+                                            className='w-10 h-10 rounded-full mr-2' 
+                                        />
                                         <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700">
                                             r/{subreddit}
                                         </a>
