@@ -2,39 +2,39 @@ import { useEffect, useState, useContext } from 'react';
 import { DarkModeContext } from './DarkModeContext';
 import PropTypes from 'prop-types';
 
-function SubSidebar() {
+function SubSidebar({ setSubreddit }) {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
     const { darkMode } = useContext(DarkModeContext);
 
     useEffect(() => {
-    Promise.all(subreddits.map(subreddit =>
-        fetch(`/api/r/${subreddit}/about.json`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data && data.data) {
-                    let icon = data.data.icon_img;
-                    if (icon === '') {
-                        icon = defaultIcon;
+        Promise.all(subreddits.map(subreddit =>
+            fetch(`/api/r/${subreddit}/about.json`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    return { subreddit, icon };
-                } else {
-                    throw new Error('Invalid data format');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching subreddit data:', error);
-                return { subreddit, icon: defaultIcon };
-            })
-    ))
-    .then(data => setSubredditData(data)); // Set the state with the fetched data
-}, []);
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.data) {
+                        let icon = data.data.icon_img;
+                        if (icon === '') {
+                            icon = defaultIcon;
+                        }
+                        return { subreddit, icon };
+                    } else {
+                        throw new Error('Invalid data format');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching subreddit data:', error);
+                    return { subreddit, icon: defaultIcon };
+                })
+        ))
+            .then(data => setSubredditData(data)); // Set the state with the fetched data
+    }, []);
 
     return (
         <div className={`post-body ${darkMode ? 'dark' : ''}`}>
@@ -46,13 +46,22 @@ function SubSidebar() {
                             {subredditData.map(({ subreddit, icon }) => (
                                 <li key={subreddit} className="mb-4 flex items-center">
                                     <div className='flex items-center transition duration-300 hover:bg-sky-500/75 rounded p-2 w-full '>
-                                        <img 
-                                            src={icon} 
+                                        <img
+                                            src={icon}
                                             alt={`${subreddit} icon`}
-                                            onError={(e) => { e.target.onerror = null; e.target.src = defaultIcon;}}
-                                            className='w-10 h-10 rounded-full mr-2' 
+                                            onError={(e) => { e.target.onerror = null; e.target.src = defaultIcon; }}
+                                            className='w-10 h-10 rounded-full mr-2'
                                         />
-                                        <a href={`https://www.reddit.com/r/${subreddit}`} target="_blank" rel="noopener noreferrer" className="text-sky-700">
+                                        <a
+                                            href={`https://www.reddit.com/r/${subreddit}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-sky-700"
+                                            onClick={(e) => {
+                                                e.preventDefault(); // Prevent the link from opening in a new tab
+                                                setSubreddit(subreddit); // Update the subreddit state in App.jsx
+                                            }}
+                                        >
                                             r/{subreddit}
                                         </a>
                                     </div>

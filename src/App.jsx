@@ -6,16 +6,16 @@ import SubSidebar from "./components/SubSidebar.jsx"
 import { DarkModeProvider } from "./components/DarkModeContext.jsx"
 
 function App() {
-  const subreddit = useState('webdev')[0]; // replace 'defaultSubreddit' with your default subreddit
+  const [subreddit, setSubreddit] = useState('webdev'); // replace 'defaultSubreddit' with your default subreddit
 
   return (
     <DarkModeProvider>
       <div className="bg-reddit_light dark:bg-dark_reddit_light">
         <Header />
-        <BoardHeader />
+        <BoardHeader subreddit={subreddit}/>
         <div className="flex container mx-auto px-24">
           <PostBody subreddit={subreddit} />
-          <SubSidebar />
+          <SubSidebar setSubreddit={setSubreddit}/>
         </div>
       </div>
     </DarkModeProvider>
