@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Header from "./components/Header.jsx"
 import BoardHeader from "./components/BoardHeader.jsx"
-import PostForm from "./components/PostForm.jsx"
 import PostBody from "./components/PostBody.jsx"
 import SubSidebar from "./components/SubSidebar.jsx"
 import { DarkModeProvider } from "./components/DarkModeContext.jsx"
