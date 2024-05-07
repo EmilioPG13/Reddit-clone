@@ -10,8 +10,8 @@ export const getTopPosts = (subreddit) => {
         });
 }
 
-export const getComments = (postId) => {
-    return axios.get(`https://www.reddit.com/r/webdev/comments/${postId}.json`)
+export const getComments = (subreddit, postId) => {
+    return axios.get(`https://www.reddit.com/r/${subreddit}/comments/${postId}.json`)
         .then(response => {
             return response.data[1].data.children;
         })

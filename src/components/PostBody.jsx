@@ -33,7 +33,7 @@ function PostBody({ subreddit }) {
 
     const togglePostComments = (event, postId) => {
         event.stopPropagation(); // Prevent the event from bubbling up
-        getComments(postId)
+        getComments(subreddit, postId)
             .then(data => {
                 if (data && data.length > 0) {
                     setComments(data.slice(0, 3));
