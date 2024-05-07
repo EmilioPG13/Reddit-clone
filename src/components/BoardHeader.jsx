@@ -8,7 +8,7 @@ function BoardHeader({ subreddit = 'webdev' }) {
     const defaultBanner = 'https://www.investopedia.com/thmb/DNrU2SOx4AYYiLm9wWSJcsgzmEg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Reddit-Logo-e9537b96b55349ac8eb77830f8470c95.jpg';
 
     useEffect(() => {
-        fetch(`/.netlify/functions/proxy?subreddit=${subreddit}`)
+        fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
             .then(response => response.json())
             .then(data => {
                 setBannerUrl(data.data.banner_img || defaultBanner);
