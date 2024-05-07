@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import { DarkModeContext } from './DarkModeContext';
+import PropTypes from 'prop-types';
 
-function SubSidebar() {
+function SubSidebar({ setSubreddit }) {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
@@ -60,9 +61,13 @@ function SubSidebar() {
                         </ul>
                     </div>
                 </aside>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
+
+SubSidebar.propTypes = {
+    setSubreddit: PropTypes.func.isRequired,
+};
 
 export default SubSidebar;
