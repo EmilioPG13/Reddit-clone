@@ -97,11 +97,6 @@ function PostBody({ subreddit }) {
     );
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b81e91f7eb2f5ffcac5d95658decdc01b8cb84a9
 PostBody.propTypes = {
     subreddit: PropTypes.string.isRequired,
 };
