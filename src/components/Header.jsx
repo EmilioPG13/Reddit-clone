@@ -29,7 +29,7 @@ function Header() {
                 {/* This is the search bar */}
                 <form action='' className='bg-reddit_light-brighter dark:bg-dark_reddit_light-brightest px-3 flex rounded-full border border-reddit_border dark:border-dark_reddit_border absolute left-1/2 transform -translate-x-1/2 w-1/2'>
                     <SearchIcon className="text-gray-500 h-6 w-6 mt-1 dark:text-dark_reddit_text" />
-                    <input type='text' className='bg-reddit_light-brighter dark:bg-dark_reddit_light-brightest text-sm p-1 pl-2 pr-0 block focus:outline-none text-white h-9 dark:text-dark_reddit_text' placeholder='Search' />
+                    <input type='text' className='bg-reddit_light-brighter dark:bg-dark_reddit_light-brightest text-sm p-1 pl-2 pr-0 block focus:outline-none text-black h-9 dark:text-dark_reddit_text' placeholder='Search' />
                 </form>
 
                 {/* This is the right part of the header */}
