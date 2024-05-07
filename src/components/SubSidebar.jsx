@@ -9,7 +9,7 @@ function SubSidebar() {
 
     useEffect(() => {
     Promise.all(subreddits.map(subreddit =>
-        fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
+        fetch(`/api/r/${subreddit}/about.json`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,9 +32,8 @@ function SubSidebar() {
                 return { subreddit, icon: defaultIcon };
             })
     ))
-        .then(setSubredditData)
-        .catch(error => console.error('Error with Promise.all:', error));
-}, [subreddits]);
+    .then(data => setSubredditData(data)); // Set the state with the fetched data
+}, []);
 
     return (
         <div className={`post-body ${darkMode ? 'dark' : ''}`}>
