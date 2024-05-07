@@ -6,7 +6,7 @@ import SubSidebar from "./components/SubSidebar.jsx"
 import { DarkModeProvider } from "./components/DarkModeContext.jsx"
 
 function App() {
-  const [subreddit, setSubreddit] = useState('webdev'); // replace 'defaultSubreddit' with your default subreddit
+  const subreddit = useState('webdev')[0]; // replace 'defaultSubreddit' with your default subreddit
 
   return (
     <DarkModeProvider>
