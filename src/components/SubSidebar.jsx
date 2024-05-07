@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function SubSidebar({ setSubreddit }) {
     const [subredditData, setSubredditData] = useState([]);
-    const subreddits = ['javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
+    const subreddits = ['webdev', 'javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
     const { darkMode } = useContext(DarkModeContext);
 
