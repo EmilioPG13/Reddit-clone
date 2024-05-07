@@ -8,19 +8,33 @@ function SubSidebar() {
     const { darkMode } = useContext(DarkModeContext);
 
     useEffect(() => {
-        Promise.all(subreddits.map(subreddit =>
-            fetch(`/.netlify/functions/proxy?subreddit=${subreddit}`)
-                .then(response => response.json())
-                .then(data => {
+    Promise.all(subreddits.map(subreddit =>
+        fetch(`/.netlify/functions/proxy?subreddit=${subreddit}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.data) {
                     let icon = data.data.icon_img;
                     if (icon === '') {
                         icon = defaultIcon;
                     }
                     return { subreddit, icon };
-                })
-        ))
-            .then(setSubredditData);
-    }, [subreddits]);
+                } else {
+                    throw new Error('Invalid data format');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching subreddit data:', error);
+                return { subreddit, icon: defaultIcon };
+            })
+    ))
+        .then(setSubredditData)
+        .catch(error => console.error('Error with Promise.all:', error));
+}, [subreddits]);
 
     return (
         <div className={`post-body ${darkMode ? 'dark' : ''}`}>
