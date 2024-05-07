@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import { DarkModeContext } from './DarkModeContext';
 import PropTypes from 'prop-types';
 
-function SubSidebar({ setSubreddit }) {
+function SubSidebar() {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
