@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-export const getTopPosts = () => {
-    return axios.get('https://www.reddit.com/r/webdev/top.json')
+export const getTopPosts = (subreddit) => {
+    return axios.get(`https://www.reddit.com/r/${subreddit}/top.json`)
         .then(response => {
             return response.data;
         })
         .catch(error => {
             console.error('Error fetching data from Reddit API', error);
         });
-
 }
 
 export const getComments = (postId) => {
