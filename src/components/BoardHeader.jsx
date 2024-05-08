@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { setBannerUrl, setIconUrl } from '../actions';
 
 function BoardHeader({ subreddit = 'webdev' }) {
-    const [bannerURL, setBannerUrl] = useState('');
-    const [iconUrl, setIconUrl] = useState('');
+    const dispatch = useDispatch();
+    const bannerURL = useSelector(state => state.bannerUrl);
+    const iconUrl = useSelector(state => state.iconUrl)
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
     const defaultBanner = 'https://www.investopedia.com/thmb/DNrU2SOx4AYYiLm9wWSJcsgzmEg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Reddit-Logo-e9537b96b55349ac8eb77830f8470c95.jpg';
 
@@ -11,10 +14,10 @@ function BoardHeader({ subreddit = 'webdev' }) {
         fetch(`https://www.reddit.com/r/${subreddit}/about.json`)
             .then(response => response.json())
             .then(data => {
-                setBannerUrl(data.data.banner_img || defaultBanner);
-                setIconUrl(data.data.icon_img || defaultIcon);
+                dispatch(setBannerUrl(data.data.banner_img || defaultBanner));
+                dispatch(setIconUrl(data.data.icon_img || defaultIcon));
             });
-    }, [subreddit, defaultBanner, defaultIcon]);
+    }, [subreddit, defaultBanner, defaultIcon, dispatch]);
 
     return (
         <>
