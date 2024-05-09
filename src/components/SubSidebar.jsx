@@ -1,12 +1,12 @@
-import { useEffect, useState, useContext } from 'react';
-import { DarkModeContext } from './DarkModeContext';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 function SubSidebar({ setSubreddit }) {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['webdev', 'javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
-    const { darkMode } = useContext(DarkModeContext);
+    const darkMode = useSelector(state => state.darkMode);
 
     useEffect(() => {
         Promise.all(subreddits.map(subreddit =>

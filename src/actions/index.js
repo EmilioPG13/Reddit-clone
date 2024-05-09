@@ -9,7 +9,7 @@ export const setIconUrl = (url) => ({
     payload: url,
 });
 
-// Header.jsx actions
+// DarkModeContext.jsx actions
 export const toggleDarkMode = () => ({
     type: 'TOGGLE_DARK_MODE'
 });

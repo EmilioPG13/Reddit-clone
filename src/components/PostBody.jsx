@@ -1,17 +1,17 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { getTopPosts, getComments } from '../api/reddit';
 import { ChatAlt2Icon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
-import { DarkModeContext } from './DarkModeContext';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 function PostBody({ subreddit }) {
     const [posts, setPosts] = useState([]);
     const [expandedPostId, setExpandedPostId] = useState(null);
     const [comments, setComments] = useState([]);
     const [expandedCommentsId, setExpandedCommentsId] = useState(null);
-    const { darkMode } = useContext(DarkModeContext);
+    const darkMode = useSelector(state => state.darkMode);
 
     useEffect(() => {
         getTopPosts(subreddit)

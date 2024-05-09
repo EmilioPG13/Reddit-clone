@@ -1,15 +1,21 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleDarkMode } from '../actions';
 import Logo from '../images/reddit-logo.png';
 import Avatar from '../images/avatar.png';
 import { ChevronDownIcon } from '@heroicons/react/outline';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import linkedInLogo from '../images/linkedIn-logo.png';
 import githubLogo from '../images/github-logo.png';
-import { DarkModeContext } from './DarkModeContext';
 
 function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
+    const dispatch = useDispatch();
+    const darkMode = useSelector(state => state.darkMode);
+
+    const handleDarkModeToggle = () => {
+        dispatch(toggleDarkMode());
+    }
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -31,7 +37,7 @@ function Header() {
                 
                 {/* This is the dark mode button */}
                 <div className='flex mr-2'>
-                    <button onClick={toggleDarkMode}>
+                    <button onClick={handleDarkModeToggle}>
                         {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
                     </button>
 
