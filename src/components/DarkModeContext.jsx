@@ -1,24 +1,24 @@
-import { createContext, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-
-export const DarkModeContext = createContext();
+import { toggleDarkMode } from '../actions';
 
 export function DarkModeProvider({ children }) {
-    const [darkMode, setDarkMode] = useState(false);
+    const dispatch = useDispatch();
+    const darkMode = useSelector(state => state.darkMode);
 
-    const toggleDarkMode = () => {
+    const handleToggleDarkmode = () => {
         if (darkMode) {
             document.documentElement.classList.remove('dark');
         } else {
             document.documentElement.classList.add('dark');
         }
-        setDarkMode(!darkMode);
+        dispatch(toggleDarkMode());
 };
 
 return (
-        <DarkModeContext.Provider value={{ darkMode, toggleDarkMode}}>
+        <div onClick={handleToggleDarkmode}>
             {children}
-        </DarkModeContext.Provider>
+        </div>
     );
 }
 
