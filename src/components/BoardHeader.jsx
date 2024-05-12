@@ -5,8 +5,8 @@ import { setBannerUrl, setIconUrl } from '../actions';
 
 function BoardHeader({ subreddit = 'webdev' }) {
     const dispatch = useDispatch();
-    const bannerURL = useSelector(state => state.bannerUrl);
-    const iconUrl = useSelector(state => state.iconUrl)
+    const bannerURL = useSelector(state => state.subreddit.bannerUrl);
+    const iconUrl = useSelector(state => state.subreddit.iconUrl);
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
     const defaultBanner = 'https://www.investopedia.com/thmb/DNrU2SOx4AYYiLm9wWSJcsgzmEg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Reddit-Logo-e9537b96b55349ac8eb77830f8470c95.jpg';
 
