@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleDarkMode } from '../actions';
 import Logo from '../images/reddit-logo.png';
@@ -11,9 +11,9 @@ import githubLogo from '../images/github-logo.png';
 function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dispatch = useDispatch();
-    const darkMode = useSelector(state => state.darkMode);
-
+    const darkMode = useSelector((state) => state.darkMode);
     const handleDarkModeToggle = () => {
+        console.log('Toggling dark mode');
         dispatch(toggleDarkMode());
     }
 
@@ -21,8 +21,16 @@ function Header() {
         setDropdownOpen(!dropdownOpen);
     }
 
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.body.classList.add('dark');
+        } else {
+            document.documentElement.body.classList.remove('dark');
+        }
+    }, [darkMode]);
+
     return (
-        <header className="w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text">
+        <header className={`w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text ${darkMode ? 'dark' : ''}`}>
             <div className="flex justify-between">
 
                 {/* This is the left part of the header */}
@@ -34,11 +42,11 @@ function Header() {
                 </div>
 
                 {/* This is the right part of the header */}
-                
+
                 {/* This is the dark mode button */}
                 <div className='flex mr-2'>
                     <button onClick={handleDarkModeToggle}>
-                        {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+                        {!darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
                     </button>
 
                     {/* This is a button with an avatar and a dropdown icon */}
