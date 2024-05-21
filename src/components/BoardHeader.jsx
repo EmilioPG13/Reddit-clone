@@ -19,12 +19,12 @@ function BoardHeader({ subreddit = 'webdev' }) {
     return (
         <>
             {/* Banner */}
-            <div className="h-40 bg-contain bg-repeat bg-center mx-80 rounded-lg " style={{ backgroundImage: `url("${bannerURL}")` }}>
+            <div className="w-full lg:w-3/4 md:w-1/2 sm:w-full xs:w-11/12 h-40 bg-contain bg-repeat bg-center mx-auto rounded-lg " style={{ backgroundImage: `url("${bannerURL}")` }}>
             </div>
             {/* Board Header */}
             <div className="bg-reddit_light-bright">
                 {/* Header Content */}
-                <div className="ml-80 relative flex">
+                <div className="ml-80 sm:ml-10 relative flex">
                     {/* Board Icon */}
                     <div className="h-20 w-20 rounded-full overflow-hidden relative -top-4 border-4 border-white bg-white">
                         <img src={iconUrl} alt="Board icon"></img>
