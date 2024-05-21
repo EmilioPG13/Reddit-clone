@@ -17,10 +17,10 @@ function Header() {
 
     return (
         <header className="w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center px-4 sm:px-0">
 
                 {/* This is the left part of the header */}
-                <div className='flex'>
+                <div className='flex mb-1 sm:mb-0'>
                     {/* This is the Reddit logo */}
                     <img src={Logo} alt="Reddit Logo" className="w-8 h-8 ml-3 " />
                     {/* This is a text that says "reddit" */}
@@ -30,7 +30,7 @@ function Header() {
                 {/* This is the right part of the header */}
                 
                 {/* This is the dark mode button */}
-                <div className='flex mr-2'>
+                <div className='flex items-spaced mr-2'>
                     <button onClick={toggleDarkMode}>
                         {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
                     </button>
