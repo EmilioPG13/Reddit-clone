@@ -24,19 +24,18 @@ function BoardHeader({ subreddit = 'webdev' }) {
             {/* Board Header */}
             <div className="bg-reddit_light-bright">
                 {/* Header Content */}
-                {/* Header Content */}
-<div className="relative mx-auto max-w-screen-lg flex items-center lg:pl-32 md:pl-32 xl:pl-1 2xl:ml-80">
-    <div className="w-full lg:w-3/4 md:w-1/2 sm:w-full xs:w-11/12 flex items-center pl-8 md:pl-16 lg:pl-8">
-        {/* Board Icon */}
-        <div className="h-20 w-20 rounded-full overflow-hidden relative -top-4 border-4 border-white bg-white">
-            <img src={iconUrl} alt="Board icon" className="object-cover rounded-full"></img>
-        </div>
-        {/* Board Title */}
-        <div className="pl-4 font-semibold">
-            <h1 className="text-reddit_text text-4xl dark:text-dark_reddit_text-darkest">r/{subreddit}</h1>
-        </div>
-    </div>
-</div>
+                <div className="relative mx-auto max-w-screen-lg flex items-center lg:pl-32 md:pl-32 xl:pl-1 2xl:ml-80">
+                    <div className="w-full lg:w-3/4 md:w-1/2 sm:w-full xs:w-11/12 flex items-center pl-8 md:pl-16 lg:pl-8">
+                        {/* Board Icon */}
+                        <div className="h-20 w-20 rounded-full overflow-hidden relative -top-4 border-4 border-white bg-white">
+                            <img src={iconUrl} alt="Board icon" className="object-cover rounded-full"></img>
+                        </div>
+                        {/* Board Title */}
+                        <div className="pl-4 font-semibold">
+                            <h1 className="text-reddit_text text-4xl dark:text-dark_reddit_text-darkest">r/{subreddit}</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
