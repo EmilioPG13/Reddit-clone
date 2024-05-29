@@ -1,45 +1,66 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { DarkModeContext } from './DarkModeContext';
 import PropTypes from 'prop-types';
+import { MenuIcon } from '@heroicons/react/solid';
 
 function SubSidebar({ setSubreddit }) {
     const [subredditData, setSubredditData] = useState([]);
     const subreddits = ['webdev', 'javascript', 'reactjs', 'css', 'html5', 'programming', 'python', 'learnprogramming', 'frontend', 'backend', 'node', 'angular', 'vuejs', 'docker', 'aws', 'typescript', 'mongodb', 'rust', 'golang', 'kubernetes'];
     const defaultIcon = 'https://www.redditstatic.com/icon.png';
     const { darkMode } = useContext(DarkModeContext);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const sidebarRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            setIsMenuOpen(false);
+        }
+    }
 
     useEffect(() => {
-        Promise.all(subreddits.map(subreddit =>
-            fetch(`/api/r/${subreddit}/about.json`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+    // Fetch subreddit data
+    Promise.all(subreddits.map(subreddit =>
+        fetch(`/api/r/${subreddit}/about.json`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.data) {
+                    let icon = data.data.icon_img;
+                    if (icon === '') {
+                        icon = defaultIcon;
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data && data.data) {
-                        let icon = data.data.icon_img;
-                        if (icon === '') {
-                            icon = defaultIcon;
-                        }
-                        return { subreddit, icon };
-                    } else {
-                        throw new Error('Invalid data format');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching subreddit data:', error);
-                    return { subreddit, icon: defaultIcon };
-                })
-        ))
-            .then(data => setSubredditData(data)); // Set the state with the fetched data
-    }, []);
+                    return { subreddit, icon };
+                } else {
+                    throw new Error('Invalid data format');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching subreddit data:', error);
+                return { subreddit, icon: defaultIcon };
+            })
+    ))
+        .then(data => setSubredditData(data)); // Set the state with the fetched data
+
+    // Add event listener for clicks outside of the sidebar
+    window.addEventListener('mousedown', handleClickOutside);
+    
+    // Remove event listener when the component is unmounted
+    return () => {
+        window.removeEventListener('mousedown', handleClickOutside);
+    };
+}, [subreddits]);
 
     return (
-        <div className={`post-body ${darkMode ? 'dark' : ''}`}>
+        <div ref={sidebarRef} className={`post-body ${darkMode ? 'dark' : ''}`}>
+            <button className="lg:hidden p-4" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <MenuIcon className="h-6 w-6" />
+            </button>
             <div className="bg-reddit_light-default sticky top-0 h-screen dark:bg-dark_reddit_light-default">
-                <aside className="w-72 flex-none mr-6 p-4 border border-reddit_border bg-reddit_light-brighter rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter">
+            <aside className={`w-72 flex-none mr-6 p-4 border border-reddit_border bg-reddit_light-brighter rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter transform top-0 right-0 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 lg:relative lg:mr-6 lg:p-4 lg:border lg:border-reddit_border lg:bg-reddit_light-brighter lg:rounded-md lg:mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter`}>
                     <h2 className="text-xl mb-4 text-reddit_text-default dark:text-dark_reddit_text-default dark:text-dark_reddit_text">Suggested Subreddits</h2>
                     <div className="overflow-y-auto h-[calc(100vh-10rem)]">
                         <ul>
