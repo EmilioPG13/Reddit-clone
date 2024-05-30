@@ -60,7 +60,7 @@ return (
             <MenuIcon className="h-8 w-8" />
         </button>
         <div className="px-6 bg-reddit_light text-reddit_text dark:bg-dark_reddit_light dark:text-dark_reddit_text w-full max-w-2xl mx-auto">
-            <aside className={`w-72 flex-none mr-6 p-4 border border-reddit_border bg-reddit_light-brighter rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter transform top-0 right-0 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 lg:relative lg:mr-6 lg:p-4 lg:border lg:border-reddit_border lg:bg-reddit_light-brighter lg:rounded-md lg:mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter ${isMenuOpen ? '' : 'hidden'} lg:block`}>
+            <aside className={`w-72 lg:block md:mr-0 flex-none mr-6 p-4 border border-reddit_border bg-reddit_light-brighter rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter transform top-0 right-0 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 lg:relative lg:mr-6 lg:p-4 lg:border lg:border-reddit_border lg:bg-reddit_light-brighter lg:rounded-md lg:mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter ${isMenuOpen ? '' : 'hidden'}`}>
                 <h2 className="text-xl mb-4 text-reddit_text-default dark:text-dark_reddit_text-default dark:text-dark_reddit_text">Suggested Subreddits</h2>
                     <div className="overflow-y-auto h-[calc(100vh-10rem)]">
                         <ul>

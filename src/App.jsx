@@ -13,7 +13,7 @@ function App() {
       <div className="bg-reddit_light dark:bg-dark_reddit_light">
         <Header />
         <BoardHeader subreddit={subreddit}/>
-        <div className="flex container mx-auto px-24">
+        <div className="flex container mx-auto px-24 md:pr-0 md:pl-10">
           <PostBody subreddit={subreddit} />
           <SubSidebar setSubreddit={setSubreddit}/>
         </div>

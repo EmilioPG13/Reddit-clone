@@ -50,8 +50,8 @@ function PostBody({ subreddit }) {
     };
 
     return (
-        <div className={`post-body ${darkMode ? 'dark' : ''}`}>
-            <div className="px-6 bg-reddit_light text-reddit_text dark:bg-dark_reddit_light dark:text-dark_reddit_text">
+        <div className= {`post-body ${darkMode ? 'dark' : ''}`}>
+            <div className=" bg-reddit_light text-reddit_text dark:bg-dark_reddit_light dark:text-dark_reddit_text">
                 {posts.map(post => (
                     <article key={post.id} className="border border-reddit_border bg-reddit_light-brighter p-2 rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter" onClick={() => setExpandedPostId(expandedPostId === post.data.id ? null : post.data.id)}> <div className="flex">
                         <aside className='sidebar flex flex-col items-center justify-start bg-reddit_light-brighter p-2 mr-2 border-r border-reddit_border dark:bg-dark_reddit_light-brighter dark:border-r-dark_reddit_border'>
