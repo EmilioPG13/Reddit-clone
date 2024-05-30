@@ -17,30 +17,30 @@ function Header() {
 
     return (
         <header className="w-full relative p-2 pb-3.5 mb-2 bg-reddit_light dark:bg-dark_reddit_light text-reddit_text dark:text-dark_reddit_text">
-            <div className="flex justify-between items-center px-4 sm:px-0">
+            <div className='flex justify-between items-center px-4 md:pl-0'>
 
-                {/* This is the left part of the header */}
-                <div className='flex mb-1 sm:mb-0'>
-                    {/* This is the Reddit logo */}
-                    <img src={Logo} alt="Reddit Logo" className="w-8 h-8 ml-3 " />
-                    {/* This is a text that says "reddit" */}
-                    <h4 className='text-reddit_orange w-13 h-8 ml-1 pt-1 font-verdana font-bold'>reddit</h4> <h4 className='text-sky-500 w-13 h-8 ml-1 pt-1 font-verdana font-bold'>lite</h4>
-                </div>
+    {/* This is the left part of the header */}
+    <div className='flex mb-1'>
+        {/* This is the Reddit logo */}
+        <img src={Logo} alt="Reddit Logo" className="w-8 h-8 ml-3 " />
+        {/* This is a text that says "reddit" */}
+        <h4 className='text-reddit_orange w-13 h-8 ml-1 pt-1 font-verdana font-bold'>reddit</h4> 
+        <h4 className='text-sky-500 w-13 h-8 ml-1 pt-1 font-verdana font-bold'>lite</h4>
+    </div>
 
-                {/* This is the right part of the header */}
-                
-                {/* This is the dark mode button */}
-                <div className='flex items-spaced mr-2'>
-                    <button onClick={toggleDarkMode}>
-                        {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
-                    </button>
+    {/* This is the right part of the header */}
+    <div className='flex items-spaced md:mr-6'>
+        {/* This is the dark mode button */}
+        <button onClick={toggleDarkMode}>
+            {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+        </button>
 
-                    {/* This is a button with an avatar and a dropdown icon */}
-                    <button className='ml-4 flex' onClick={toggleDropdown}>
-                        <div className='w-8 h-8 bg-gray-600 rounded-md'>
-                            <img src={Avatar} alt="Avatar" className="block rounded-md" />
-                        </div>
-                        <ChevronDownIcon className="text-sky-500 w-5 h-5 mt-2 ml-2" />
+        {/* This is a button with an avatar and a dropdown icon */}
+        <button className='ml-4 flex' onClick={toggleDropdown}>
+            <div className='w-8 h-8 bg-gray-600 rounded-md'>
+                <img src={Avatar} alt="Avatar" className="block rounded-md" />
+            </div>
+            <ChevronDownIcon className="text-sky-500 w-5 h-5 mt-2 ml-2" />
 
                         {/* This is the dropdown Menu */}
                     </button>
