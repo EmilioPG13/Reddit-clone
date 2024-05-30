@@ -55,11 +55,11 @@ function SubSidebar({ setSubreddit }) {
 }, [subreddits]);
 
 return (
-    <div ref={sidebarRef} className={`post-body ${darkMode ? 'dark' : ''}`}>
-        <button className="lg:hidden p-4" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+    <div className={`post-body ${darkMode ? 'dark' : ''}`}>
+        <button className="lg:hidden p-4 absolute top-0 right-0" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <MenuIcon className="h-6 w-6" />
         </button>
-        <div className="bg-reddit_light-default sticky top-0 h-screen dark:bg-dark_reddit_light-default">
+        <div className="px-6 bg-reddit_light text-reddit_text dark:bg-dark_reddit_light dark:text-dark_reddit_text w-full max-w-2xl mx-auto">
             <aside className={`w-72 flex-none mr-6 p-4 border border-reddit_border bg-reddit_light-brighter rounded-md mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter transform top-0 right-0 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0 lg:relative lg:mr-6 lg:p-4 lg:border lg:border-reddit_border lg:bg-reddit_light-brighter lg:rounded-md lg:mb-3 dark:border-dark_reddit_border dark:bg-dark_reddit_light-brighter ${isMenuOpen ? '' : 'hidden'} lg:block`}>
                 <h2 className="text-xl mb-4 text-reddit_text-default dark:text-dark_reddit_text-default dark:text-dark_reddit_text">Suggested Subreddits</h2>
                     <div className="overflow-y-auto h-[calc(100vh-10rem)]">
