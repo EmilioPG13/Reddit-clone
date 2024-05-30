@@ -55,7 +55,7 @@ function SubSidebar({ setSubreddit }) {
 }, [subreddits]);
 
 return (
-    <div className={`post-body ${darkMode ? 'dark' : ''}`}>
+    <div ref={sidebarRef} className={`post-body ${darkMode ? 'dark' : ''}`}>
         <button className="lg:hidden p-4 absolute top-0 right-0" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <MenuIcon className="h-6 w-6" />
         </button>
