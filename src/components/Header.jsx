@@ -29,7 +29,7 @@ function Header() {
     </div>
 
     {/* This is the right part of the header */}
-    <div className='flex items-spaced md:mr-6'>
+    <div className='flex items-spaced md:mr-6 xs:mr-6'>
         {/* This is the dark mode button */}
         <button onClick={toggleDarkMode}>
             {darkMode ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
@@ -45,7 +45,7 @@ function Header() {
                         {/* This is the dropdown Menu */}
                     </button>
                     {dropdownOpen && (
-                        <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_light-brighter border-reddit_border dark:bg-dark_reddit_light-brighter dark:border-r-dark_reddit_border  rounded shadow-lg py-1 z-10">
+                        <div className="absolute right-0 mt-9 mr-4 w-60 bg-reddit_light-brighter border-reddit_border dark:bg-dark_reddit_light-brighter dark:border-r-dark_reddit_border rounded shadow-lg py-1 z-10">
                             <h5 className='font-semibold text-center mt-2 mb-2 text-sky-700'>Created by Emilio Parra</h5>
                             <hr />
                             <h6 className='mt-2 mb-2 text-gray-700 text-center font-medium dark:text-dark_reddit_text-darkest'>Contact Information</h6>
